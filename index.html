@@ -208,6 +208,11 @@ body.locked{overflow:hidden}
 .chips{list-style:none;margin:0;padding:0;display:flex;flex-wrap:wrap;gap:6px}
 #site.is-he .chips{justify-content:flex-end}
 .chips li{font-size:13.5px;background:var(--paper);border:1px solid var(--rule);border-radius:999px;padding:3px 11px;line-height:1.6}
+.toolkit:not(.open) .chips li:nth-child(n+5){display:none}
+.tk-more{margin-top:22px;font:500 14px var(--body);color:var(--ink);background:var(--paper);border:1px solid var(--rule);border-radius:999px;padding:7px 16px;cursor:pointer;display:inline-flex;align-items:center;gap:8px}
+.tk-more:hover{border-color:var(--ink)}
+.tk-more .caret{width:10px;height:6px;opacity:.6;transition:transform .2s}
+.tk-more[aria-expanded="true"] .caret{transform:rotate(180deg)}
 .edu-head{margin-top:56px}
 .edu-extra{grid-column:1/-1}
 .edu{grid-template-columns:repeat(3,minmax(0,1fr));align-items:start}
@@ -434,13 +439,14 @@ footer{border-top:1px solid var(--rule);padding-block:26px 84px;font-family:var(
     <div class="wrap">
       <div class="head"><h2><span class="en">Toolkit</span><span class="he">כלים</span></h2></div>
       <div class="toolkit">
-          <div class="tk"><h3><span class="en">AI engineering</span><span class="he">הנדסת AI</span></h3><ul class="chips" dir="ltr"><li>LLMs</li><li>RAG</li><li>Knowledge base design</li><li>Document ingestion pipelines</li><li>Document parsing &amp; OCR</li><li>Chunking</li><li>Embeddings</li><li>Semantic search</li><li>Structured data extraction</li><li>Prompt engineering</li><li>AI agents</li><li>Chatbots</li><li>LLM API integration</li><li>LLM output evaluation</li></ul></div>
-          <div class="tk"><h3><span class="en">Machine learning</span><span class="he">למידת מכונה</span></h3><ul class="chips" dir="ltr"><li>Supervised &amp; unsupervised learning</li><li>Deep learning</li><li>CNN</li><li>Recommender systems</li><li>Multimodal embeddings</li><li>CLIP / FashionCLIP</li><li>NLP</li><li>Predictive modeling</li><li>Anomaly detection</li><li>Time-series forecasting</li></ul></div>
-          <div class="tk"><h3><span class="en">Languages &amp; libraries</span><span class="he">שפות וספריות</span></h3><ul class="chips" dir="ltr"><li>Python</li><li>SQL</li><li>R</li><li>pandas</li><li>NumPy</li><li>scikit-learn</li><li>PyTorch</li><li>Keras</li><li>OpenCV</li><li>Matplotlib</li><li>seaborn</li><li>ggplot2</li></ul></div>
-          <div class="tk"><h3><span class="en">Data engineering</span><span class="he">הנדסת נתונים</span></h3><ul class="chips" dir="ltr"><li>PostgreSQL</li><li>BigQuery</li><li>Oracle</li><li>Airflow</li><li>ETL &amp; data integration</li><li>Data validation</li><li>Big data</li></ul></div>
-          <div class="tk"><h3><span class="en">Apps &amp; BI</span><span class="he">אפליקציות ו-BI</span></h3><ul class="chips" dir="ltr"><li>Streamlit</li><li>Flask</li><li>HTML apps</li><li>Power BI</li><li>Tableau</li><li>SAP BusinessObjects</li><li>Excel</li><li>CRM</li></ul></div>
-          <div class="tk"><h3><span class="en">Statistics &amp; analysis</span><span class="he">סטטיסטיקה וניתוח</span></h3><ul class="chips" dir="ltr"><li>Statistical analysis</li><li>Regression</li><li>Econometrics</li><li>SPSS</li><li>Data visualization</li><li>KPI design</li></ul></div>
+          <div class="tk"><h3><span class="en">AI engineering</span><span class="he">הנדסת AI</span></h3><ul class="chips" dir="ltr"><li>LLMs</li><li>RAG</li><li>AI agents</li><li>Document ingestion pipelines</li><li>Knowledge base design</li><li>Document parsing &amp; OCR</li><li>Chunking</li><li>Embeddings</li><li>Semantic search</li><li>Structured data extraction</li><li>Prompt engineering</li><li>Chatbots</li><li>LLM API integration</li><li>LLM output evaluation</li></ul></div>
+          <div class="tk"><h3><span class="en">Machine learning</span><span class="he">למידת מכונה</span></h3><ul class="chips" dir="ltr"><li>Predictive modeling</li><li>Recommender systems</li><li>Deep learning</li><li>NLP</li><li>Supervised &amp; unsupervised learning</li><li>CNN</li><li>Multimodal embeddings</li><li>CLIP / FashionCLIP</li><li>Anomaly detection</li><li>Time-series forecasting</li></ul></div>
+          <div class="tk"><h3><span class="en">Languages &amp; libraries</span><span class="he">שפות וספריות</span></h3><ul class="chips" dir="ltr"><li>Python</li><li>SQL</li><li>R</li><li>scikit-learn</li><li>pandas</li><li>NumPy</li><li>PyTorch</li><li>Keras</li><li>OpenCV</li><li>Matplotlib</li><li>seaborn</li><li>ggplot2</li></ul></div>
+          <div class="tk"><h3><span class="en">Data engineering</span><span class="he">הנדסת נתונים</span></h3><ul class="chips" dir="ltr"><li>PostgreSQL</li><li>BigQuery</li><li>Airflow</li><li>ETL &amp; data integration</li><li>Oracle</li><li>Data validation</li><li>Big data</li></ul></div>
+          <div class="tk"><h3><span class="en">Apps &amp; BI</span><span class="he">אפליקציות ו-BI</span></h3><ul class="chips" dir="ltr"><li>Power BI</li><li>Tableau</li><li>Streamlit</li><li>HTML apps</li><li>Flask</li><li>SAP BusinessObjects</li><li>Excel</li><li>CRM</li></ul></div>
+          <div class="tk"><h3><span class="en">Statistics &amp; analysis</span><span class="he">סטטיסטיקה וניתוח</span></h3><ul class="chips" dir="ltr"><li>Statistical analysis</li><li>Regression</li><li>Econometrics</li><li>KPI design</li><li>SPSS</li><li>Data visualization</li></ul></div>
       </div>
+      <button class="tk-more" id="tkMore" type="button" aria-expanded="false"><span class="lbl-more"><span class="en">Show full toolkit (+33)</span><span class="he">לכל הכלים (+33)</span></span><span class="lbl-less" hidden><span class="en">Show less</span><span class="he">הצג פחות</span></span><svg class="caret" viewBox="0 0 10 6" aria-hidden="true"><path d="M1 1l4 4 4-4" fill="none" stroke="currentColor" stroke-width="1.5"/></svg></button>
       <div class="head edu-head"><h2><span class="en">Education</span><span class="he">השכלה</span></h2></div>
         <div class="edu">
           <div><h4><span class="en"><bdi>M.Sc.</bdi> student, IE&amp;M (Data Science &amp; AI)</span><span class="he">סטודנט <bdi>M.Sc.</bdi>, הנדסת תעשייה וניהול (מדעי הנתונים ו-AI)</span></h4><p><span class="en">Ariel University · 2024 – 2026 · Coursework GPA 89 (thesis grade pending)</span><span class="he">אוניברסיטת אריאל · 2024 – 2026 · ממוצע 89 בקורסים (ציון התזה טרם נקבע)</span></p></div>
@@ -562,6 +568,7 @@ footer{border-top:1px solid var(--rule);padding-block:26px 84px;font-family:var(
     if(!t)return;
     if(t.id==='langBtn'){if(menu){menu.hidden=!menu.hidden;t.setAttribute('aria-expanded',menu.hidden?'false':'true')}return}
     if(t.hasAttribute('data-lang')){state.lang=t.getAttribute('data-lang');try{localStorage.setItem('lang',state.lang)}catch(_){}if(menu)menu.hidden=true;if(lb)lb.setAttribute('aria-expanded','false');applyLang();return}
+    if(t.id==='tkMore'){var k=document.querySelector('.toolkit'),o=!k.classList.contains('open');k.classList.toggle('open',o);t.setAttribute('aria-expanded',o?'true':'false');t.querySelector('.lbl-more').hidden=o;t.querySelector('.lbl-less').hidden=!o;if(!o){var s=$('skills');if(s&&s.getBoundingClientRect().top<0)s.scrollIntoView()}return}
     if(t.hasAttribute('data-open-deck')){openDeck();return}
     if(t.id==='viewerClose'){closeDeck();return}
     if(t.id==='slidePrev'||t.id==='slideHitL'){show(state.cur-1);return}
