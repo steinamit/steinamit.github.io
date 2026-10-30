@@ -208,7 +208,7 @@ body.locked{overflow:hidden}
 .chips{list-style:none;margin:0;padding:0;display:flex;flex-wrap:wrap;gap:6px}
 #site.is-he .chips{justify-content:flex-end}
 .chips li{font-size:13.5px;background:var(--paper);border:1px solid var(--rule);border-radius:999px;padding:3px 11px;line-height:1.6}
-.toolkit:not(.open) .chips li:nth-child(n+5){display:none}
+.toolkit:not(.tk-open) .chips li:nth-child(n+5){display:none}
 .tk-more{margin-top:22px;font:500 14px var(--body);color:var(--ink);background:var(--paper);border:1px solid var(--rule);border-radius:999px;padding:7px 16px;cursor:pointer;display:inline-flex;align-items:center;gap:8px}
 .tk-more:hover{border-color:var(--ink)}
 .tk-more .caret{width:10px;height:6px;opacity:.6;transition:transform .2s}
@@ -568,7 +568,7 @@ footer{border-top:1px solid var(--rule);padding-block:26px 84px;font-family:var(
     if(!t)return;
     if(t.id==='langBtn'){if(menu){menu.hidden=!menu.hidden;t.setAttribute('aria-expanded',menu.hidden?'false':'true')}return}
     if(t.hasAttribute('data-lang')){state.lang=t.getAttribute('data-lang');try{localStorage.setItem('lang',state.lang)}catch(_){}if(menu)menu.hidden=true;if(lb)lb.setAttribute('aria-expanded','false');applyLang();return}
-    if(t.id==='tkMore'){var k=document.querySelector('.toolkit'),o=!k.classList.contains('open');k.classList.toggle('open',o);t.setAttribute('aria-expanded',o?'true':'false');t.querySelector('.lbl-more').hidden=o;t.querySelector('.lbl-less').hidden=!o;if(!o){var s=$('skills');if(s&&s.getBoundingClientRect().top<0)s.scrollIntoView()}return}
+    if(t.id==='tkMore'){var k=document.querySelector('.toolkit'),o=!k.classList.contains('tk-open');k.classList.toggle('tk-open',o);t.setAttribute('aria-expanded',o?'true':'false');t.querySelector('.lbl-more').hidden=o;t.querySelector('.lbl-less').hidden=!o;if(!o){var s=$('skills');if(s&&s.getBoundingClientRect().top<0)s.scrollIntoView()}return}
     if(t.hasAttribute('data-open-deck')){openDeck();return}
     if(t.id==='viewerClose'){closeDeck();return}
     if(t.id==='slidePrev'||t.id==='slideHitL'){show(state.cur-1);return}
