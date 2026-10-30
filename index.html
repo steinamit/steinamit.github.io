@@ -57,7 +57,14 @@ p{margin:0}
 .nav{display:flex;gap:20px;margin-inline-start:auto}
 .nav a{color:var(--muted);text-decoration:none;font-size:15px}
 .nav a:hover{color:var(--ink)}
-.lang{font:500 14px var(--body);background:var(--paper);color:var(--ink);border:1px solid var(--rule);border-radius:999px;padding:5px 14px;cursor:pointer}
+.lang{font:500 14px var(--body);background:var(--paper);color:var(--ink);border:1px solid var(--rule);border-radius:999px;padding:5px 12px;cursor:pointer;display:inline-flex;align-items:center;gap:8px}
+.lang #langCur{display:inline-flex;align-items:center;gap:8px}
+.flag{width:20px;height:14px;border-radius:2px;box-shadow:0 0 0 1px rgba(0,0,0,.12);flex:none}
+.caret{width:10px;height:6px;opacity:.6}
+.langwrap{position:relative}
+.langmenu{position:absolute;top:calc(100% + 6px);inset-inline-end:0;background:var(--paper);border:1px solid var(--rule);border-radius:12px;padding:6px;min-width:150px;box-shadow:0 8px 24px rgba(15,23,38,.12);z-index:60}
+.langmenu button{display:flex;align-items:center;gap:10px;width:100%;font:500 14px var(--body);color:var(--ink);background:none;border:0;border-radius:8px;padding:8px 10px;cursor:pointer;text-align:start}
+.langmenu button:hover,.langmenu button[aria-current="true"]{background:var(--bg)}
 .lang:hover{border-color:var(--ink)}
 
 /* hero */
@@ -225,7 +232,7 @@ footer{border-top:1px solid var(--rule);padding-block:26px 84px;font-family:var(
   .flow{grid-template-columns:1fr 1fr}
   .tl>li{grid-template-columns:1fr;gap:4px}
   .nav{display:none}
-  .lang{margin-inline-start:auto}
+  .langwrap{margin-inline-start:auto}
   section{padding-block:48px}
   .hero{padding-block:40px 44px}
 }
@@ -253,7 +260,7 @@ footer{border-top:1px solid var(--rule);padding-block:26px 84px;font-family:var(
       <a href="#before"><span class="en">Experience</span><span class="he">ניסיון</span></a>
       <a href="#contact"><span class="en">Contact</span><span class="he">יצירת קשר</span></a>
     </nav>
-    <button class="lang" id="langBtn" type="button" aria-label="Switch language">עברית</button>
+    <div class="langwrap"><button class="lang" id="langBtn" type="button" aria-haspopup="true" aria-expanded="false" aria-label="Language"><span id="langCur"><svg class="flag" viewBox="0 0 30 20" aria-hidden="true"><rect width="30" height="20" fill="#B22234"/><g fill="#fff"><rect y="1.54" width="30" height="1.54"/><rect y="4.62" width="30" height="1.54"/><rect y="7.69" width="30" height="1.54"/><rect y="10.77" width="30" height="1.54"/><rect y="13.85" width="30" height="1.54"/><rect y="16.92" width="30" height="1.54"/></g><rect width="12" height="10.77" fill="#3C3B6E"/></svg><span>English</span></span><svg class="caret" viewBox="0 0 10 6" aria-hidden="true"><path d="M1 1l4 4 4-4" fill="none" stroke="currentColor" stroke-width="1.5"/></svg></button><div class="langmenu" id="langMenu" role="menu" hidden><button type="button" role="menuitem" data-lang="en"><svg class="flag" viewBox="0 0 30 20" aria-hidden="true"><rect width="30" height="20" fill="#B22234"/><g fill="#fff"><rect y="1.54" width="30" height="1.54"/><rect y="4.62" width="30" height="1.54"/><rect y="7.69" width="30" height="1.54"/><rect y="10.77" width="30" height="1.54"/><rect y="13.85" width="30" height="1.54"/><rect y="16.92" width="30" height="1.54"/></g><rect width="12" height="10.77" fill="#3C3B6E"/></svg><span>English</span></button><button type="button" role="menuitem" data-lang="he"><svg class="flag" viewBox="0 0 30 20" aria-hidden="true"><rect width="30" height="20" fill="#fff"/><rect y="2.5" width="30" height="2.5" fill="#0038B8"/><rect y="15" width="30" height="2.5" fill="#0038B8"/><g fill="none" stroke="#0038B8" stroke-width="1"><path d="M15 6.2l3.3 5.7h-6.6z"/><path d="M15 13.8l-3.3-5.7h6.6z"/></g></svg><span>עברית</span></button></div></div>
   </div>
 </header>
 
@@ -496,7 +503,7 @@ footer{border-top:1px solid var(--rule);padding-block:26px 84px;font-family:var(
   function applyLang(){
     var site=$('site'),btn=$('langBtn');if(!site)return;
     site.className='is-'+state.lang;site.lang=state.lang;site.dir=state.lang==='he'?'rtl':'ltr';
-    if(btn)btn.textContent=state.lang==='he'?'English':'עברית';
+    var cur=$('langCur'),opt=document.querySelector('#langMenu [data-lang="'+state.lang+'"]');if(cur&&opt&&cur.innerHTML!==opt.innerHTML)cur.innerHTML=opt.innerHTML;document.querySelectorAll('#langMenu [data-lang]').forEach(function(b){b.setAttribute('aria-current',b.getAttribute('data-lang')===state.lang?'true':'false')});
   }
 
   /* slides */
@@ -550,8 +557,11 @@ footer{border-top:1px solid var(--rule);padding-block:26px 84px;font-family:var(
   var swiped=false;
   document.addEventListener('click',function(e){
     if(swiped){swiped=false;if(e.target.closest('.frame')){e.preventDefault();return}}
-    var t=e.target.closest('button');if(!t)return;
-    if(t.id==='langBtn'){state.lang=state.lang==='he'?'en':'he';try{localStorage.setItem('lang',state.lang)}catch(_){}applyLang();return}
+    var t=e.target.closest('button'),menu=$('langMenu'),lb=$('langBtn');
+    if(menu&&!menu.hidden&&(!t||(t.id!=='langBtn'&&!t.hasAttribute('data-lang')))){menu.hidden=true;if(lb)lb.setAttribute('aria-expanded','false')}
+    if(!t)return;
+    if(t.id==='langBtn'){if(menu){menu.hidden=!menu.hidden;t.setAttribute('aria-expanded',menu.hidden?'false':'true')}return}
+    if(t.hasAttribute('data-lang')){state.lang=t.getAttribute('data-lang');try{localStorage.setItem('lang',state.lang)}catch(_){}if(menu)menu.hidden=true;if(lb)lb.setAttribute('aria-expanded','false');applyLang();return}
     if(t.hasAttribute('data-open-deck')){openDeck();return}
     if(t.id==='viewerClose'){closeDeck();return}
     if(t.id==='slidePrev'||t.id==='slideHitL'){show(state.cur-1);return}
@@ -561,7 +571,7 @@ footer{border-top:1px solid var(--rule);padding-block:26px 84px;font-family:var(
     if(t.id==='nextBtn'){go(current()+1);return}
     if(t.id==='copyBtn'){copyEmail(t);return}
   });
-  document.addEventListener('keydown',function(e){
+  document.addEventListener('keydown',function(e){if(e.key==='Escape'){var m=$('langMenu');if(m&&!m.hidden){m.hidden=true;return}}
     if(!deckOpen())return;
     if(e.key==='Escape')closeDeck();
     else if(e.key==='ArrowRight')show(state.cur+1);
