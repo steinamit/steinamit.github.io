@@ -1,0 +1,4 @@
+User-agent: *
+Allow: /
+
+Sitemap: https://steinamit.github.io/sitemap.xml
