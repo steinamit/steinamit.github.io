@@ -178,6 +178,7 @@ body.locked{overflow:hidden}
 .proj{background:var(--paper);border:1px solid var(--rule);border-radius:12px;padding:18px;display:flex;flex-direction:column;gap:8px}
 .proj .tag{font-family:var(--mono);font-size:12px;letter-spacing:.05em;text-transform:uppercase;color:var(--accent)}
 .proj h3{font-size:18px;font-weight:700}
+.proj-img{display:block;width:calc(100% + 36px);max-width:none;height:auto;aspect-ratio:16/9;object-fit:cover;object-position:50% 35%;margin:-18px -18px 6px;border-radius:12px 12px 0 0}
 .proj p{font-size:15px}
 .proj .tools{color:var(--muted);font-size:13.5px;font-family:var(--mono);text-align:start;margin-top:auto;padding-top:6px}
 .proj a{font-size:14.5px;font-weight:500;display:inline-flex;align-items:center;gap:6px;text-decoration:none}
@@ -367,9 +368,10 @@ footer{border-top:1px solid var(--rule);padding-block:26px 84px;font-family:var(
           <a href="https://github.com/steinamit/Final-project-in-the-course-Advanced-Data-Mining-and-Analysis-in-Python-" target="_blank" rel="noopener"><span class="en">Code on GitHub</span><span class="he">הקוד ב-GitHub</span><svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" aria-hidden="true"><path d="M5 11l6-6M6 5h5v5"/></svg></a>
         </article>
         <article class="proj">
+          <img class="proj-img" src="slides/travel-talk.jpg" alt="Amit Stein presenting the travel survey analysis to the class" width="800" height="578" loading="lazy">
           <p class="tag"><span class="en">Data analysis</span><span class="he">ניתוח נתונים</span></p>
           <h3><span class="en">Travel habits survey</span><span class="he">סקר הרגלי נסיעה</span></h3>
-          <p><span class="en">Cleaned and analyzed the Ministry of Transportation's household travel survey for the Tel Aviv metro area, about 39,000 people, and examined how education, employment, gender and sector relate to holding a driving license.</span><span class="he">ניקוי וניתוח של סקר הרגלי הנסיעה של משרד התחבורה במטרופולין תל אביב, כ-39,000 איש, ובדיקה של הקשר בין השכלה, תעסוקה, מגדר ומגזר לבין החזקת רישיון נהיגה.</span></p>
+          <p><span class="en">Cleaned and analyzed the Ministry of Transportation's household travel survey for the Tel Aviv metro area, about 39,000 people, and examined how education, employment, gender and sector relate to holding a driving license. Presented to the class in March 2024.</span><span class="he">ניקוי וניתוח של סקר הרגלי הנסיעה של משרד התחבורה במטרופולין תל אביב, כ-39,000 איש, ובדיקה של הקשר בין השכלה, תעסוקה, מגדר ומגזר לבין החזקת רישיון נהיגה. הוצג בכיתה במרץ 2024.</span></p>
           <p class="tools" dir="ltr">Python · pandas · seaborn</p>
           <a href="https://github.com/steinamit/Python-data-analysis-project" target="_blank" rel="noopener"><span class="en">Code on GitHub</span><span class="he">הקוד ב-GitHub</span><svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" aria-hidden="true"><path d="M5 11l6-6M6 5h5v5"/></svg></a>
         </article>
