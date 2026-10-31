@@ -209,6 +209,7 @@ body.locked{overflow:hidden}
 #site.is-he .chips{justify-content:flex-end}
 .chips li{font-size:13.5px;background:var(--paper);border:1px solid var(--rule);border-radius:999px;padding:3px 11px;line-height:1.6}
 .toolkit:not(.tk-open) .chips li:nth-child(n+5){display:none}
+.projs:not(.tk-open) .proj.extra{display:none}
 .tk-more{margin-top:22px;font:500 14px var(--body);color:var(--ink);background:var(--paper);border:1px solid var(--rule);border-radius:999px;padding:7px 16px;cursor:pointer;display:inline-flex;align-items:center;gap:8px}
 .tk-more:hover{border-color:var(--ink)}
 .tk-more .caret{width:10px;height:6px;opacity:.6;transition:transform .2s}
@@ -259,7 +260,7 @@ footer{border-top:1px solid var(--rule);padding-block:26px 84px;font-family:var(
 <div id="site" class="is-en" lang="en" dir="ltr">
 <header class="top">
   <div class="wrap">
-    <a class="brand" href="#top"><span class="en">Amit Stein</span><span class="he">עמית שטיין</span></a>
+    <a class="brand" href="#top"><span class="en">Amit Stein</span> <span class="he">עמית שטיין</span></a>
     <nav class="nav">
       <a href="#now"><span class="en">Now</span><span class="he">היום</span></a>
       <a href="#research"><span class="en">Academic</span><span class="he">אקדמיה</span></a>
@@ -274,7 +275,7 @@ footer{border-top:1px solid var(--rule);padding-block:26px 84px;font-family:var(
   <div class="wrap hero">
     <div>
       <div class="who">
-        <div><b><span class="en">Amit Stein</span><span class="he">עמית שטיין</span></b><span><span class="en">AI &amp; Data Management · HMS Group</span><span class="he">AI וניהול נתונים · קבוצת <bdi>HMS</bdi></span></span></div>
+        <div><b><span class="en">Amit Stein</span> <span class="he">עמית שטיין</span></b> <span><span class="en">AI &amp; Data Management · HMS Group</span> <span class="he">AI וניהול נתונים · קבוצת <bdi>HMS</bdi></span></span></div>
       </div>
       <h1><span class="en">Financial data is only useful if you can trust it. <em>That's the part I work on.</em></span><span class="he">נתונים פיננסיים שווים משהו רק אם אפשר לסמוך עליהם. <em>זה החלק שאני עובד עליו.</em></span></h1>
       <p class="intro">
@@ -357,32 +358,32 @@ footer{border-top:1px solid var(--rule);padding-block:26px 84px;font-family:var(
         <article class="proj">
           <p class="tag"><span class="en">Data analysis</span><span class="he">ניתוח נתונים</span></p>
           <h3><span class="en">Travel habits survey</span><span class="he">סקר הרגלי נסיעה</span></h3>
-          <p><span class="en">Cleaned and analyzed the Ministry of Transportation's household travel survey for the Tel Aviv metro area, about 39,000 people, and examined how education, employment, gender and sector relate to holding a driving licence.</span><span class="he">ניקוי וניתוח של סקר הרגלי הנסיעה של משרד התחבורה במטרופולין תל אביב, כ-39,000 איש, ובדיקה של הקשר בין השכלה, תעסוקה, מגדר ומגזר לבין החזקת רישיון נהיגה.</span></p>
+          <p><span class="en">Cleaned and analyzed the Ministry of Transportation's household travel survey for the Tel Aviv metro area, about 39,000 people, and examined how education, employment, gender and sector relate to holding a driving license.</span><span class="he">ניקוי וניתוח של סקר הרגלי הנסיעה של משרד התחבורה במטרופולין תל אביב, כ-39,000 איש, ובדיקה של הקשר בין השכלה, תעסוקה, מגדר ומגזר לבין החזקת רישיון נהיגה.</span></p>
           <p class="tools" dir="ltr">Python · pandas · seaborn</p>
           <a href="https://github.com/steinamit/Python-data-analysis-project" target="_blank" rel="noopener"><span class="en">Code on GitHub</span><span class="he">הקוד ב-GitHub</span><svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" aria-hidden="true"><path d="M5 11l6-6M6 5h5v5"/></svg></a>
         </article>
         <article class="proj">
           <p class="tag"><span class="en">Forecasting</span><span class="he">חיזוי</span></p>
-          <h3><span class="en">Demand forecasting in R</span><span class="he">חיזוי ביקוש ב-R</span></h3>
+          <h3><span class="en">Demand forecasting in R</span> <span class="he">חיזוי ביקוש ב-R</span></h3>
           <p><span class="en">Time-series analysis of product demand: trend regression, exponential smoothing and Holt-Winters, compared by forecast accuracy.</span><span class="he">ניתוח סדרה עתית של ביקוש: רגרסיית מגמה, החלקה מעריכית ו-Holt-Winters, בהשוואה לפי דיוק החיזוי.</span></p>
           <p class="tools" dir="ltr">R · forecast · ggplot2</p>
           <a href="https://github.com/steinamit/Data-analysis-project-in-R" target="_blank" rel="noopener"><span class="en">Code on GitHub</span><span class="he">הקוד ב-GitHub</span><svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" aria-hidden="true"><path d="M5 11l6-6M6 5h5v5"/></svg></a>
         </article>
-        <article class="proj">
+        <article class="proj extra">
           <p class="tag"><span class="en">Finance</span><span class="he">פיננסים</span></p>
           <h3><span class="en">Portfolio risk and CAPM</span><span class="he">סיכון תיק השקעות ו-CAPM</span></h3>
           <p><span class="en">Tesla against the S&amp;P 500: monthly returns, beta and expected return under CAPM, Jensen's alpha, and the risk and return of mixed portfolios under different correlations.</span><span class="he">טסלה מול S&amp;P 500: תשואות חודשיות, ביטא ותשואה צפויה לפי CAPM, מדד ג׳נסן, וסיכון ותשואה של תיקים משולבים במקדמי מתאם שונים.</span></p>
           <p class="tools" dir="ltr">Excel</p>
           
         </article>
-        <article class="proj">
+        <article class="proj extra">
           <p class="tag"><span class="en">Deep learning · Course lab</span><span class="he">למידה עמוקה · תרגיל מעבדה</span></p>
           <h3><span class="en">News text classification</span><span class="he">סיווג טקסטים של חדשות</span></h3>
           <p><span class="en">A course lab built on code provided by the university. I ran and evaluated a multilayer perceptron that classifies Reuters news articles into 46 topics, using a held-out validation set.</span><span class="he">תרגיל מעבדה בקורס, על בסיס קוד שסופק מהאוניברסיטה. הרצתי והערכתי רשת MLP שמסווגת כתבות חדשות של Reuters ל-46 נושאים, מול סט ולידציה נפרד.</span></p>
           <p class="tools" dir="ltr">Python · TensorFlow · Keras</p>
           <a href="https://github.com/steinamit/Deep-Learning-with-MLP" target="_blank" rel="noopener"><span class="en">Code on GitHub</span><span class="he">הקוד ב-GitHub</span><svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" aria-hidden="true"><path d="M5 11l6-6M6 5h5v5"/></svg></a>
         </article>
-        <article class="proj">
+        <article class="proj extra">
           <p class="tag"><span class="en">Computer vision · Course lab</span><span class="he">ראייה ממוחשבת · תרגיל מעבדה</span></p>
           <h3><span class="en">Image classification with a CNN</span><span class="he">סיווג תמונות עם CNN</span></h3>
           <p><span class="en">A course lab built on code provided by the university. I ran the full pipeline on Kaggle's Cats vs Dogs data, from organizing raw images into train, validation and test sets to training a convolutional network.</span><span class="he">תרגיל מעבדה בקורס, על בסיס קוד שסופק מהאוניברסיטה. הרצתי את הפייפליין המלא על נתוני Cats vs Dogs מ-Kaggle, מסידור התמונות הגולמיות לסטים של אימון, ולידציה ובדיקה ועד אימון רשת קונבולוציה.</span></p>
@@ -390,12 +391,13 @@ footer{border-top:1px solid var(--rule);padding-block:26px 84px;font-family:var(
           <a href="https://github.com/steinamit/CNN-Implementation-for-Binary-Image-Classification-Cats-vs-Dogs" target="_blank" rel="noopener"><span class="en">Code on GitHub</span><span class="he">הקוד ב-GitHub</span><svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" aria-hidden="true"><path d="M5 11l6-6M6 5h5v5"/></svg></a>
         </article>
       </div>
+      <button class="tk-more" id="projMore" type="button" aria-expanded="false" data-expand=".projs"><span class="en" data-more="Show more projects" data-less="Show less">Show more projects</span> <span class="he" data-more="הצג עוד פרויקטים" data-less="הצג פחות">הצג עוד פרויקטים</span><svg class="caret" viewBox="0 0 10 6" aria-hidden="true"><path d="M1 1l4 4 4-4" fill="none" stroke="currentColor" stroke-width="1.5"/></svg></button>
     </div>
   </section>
 
   <section id="before">
     <div class="wrap">
-      <div class="head"><h2><span class="en">Before that</span><span class="he">לפני כן</span></h2></div>
+      <div class="head"><h2><span class="en">Experience</span><span class="he">ניסיון</span></h2></div>
       <ol class="tl">
         <li>
           <div class="yrs">2025 – 2026</div>
@@ -447,7 +449,7 @@ footer{border-top:1px solid var(--rule);padding-block:26px 84px;font-family:var(
           <div class="tk"><h3><span class="en">Apps &amp; BI</span><span class="he">אפליקציות ו-BI</span></h3><ul class="chips" dir="ltr"><li>Power BI</li><li>Tableau</li><li>Streamlit</li><li>HTML apps</li><li>Flask</li><li>SAP BusinessObjects</li><li>Excel</li><li>CRM</li></ul></div>
           <div class="tk"><h3><span class="en">Statistics &amp; analysis</span><span class="he">סטטיסטיקה וניתוח</span></h3><ul class="chips" dir="ltr"><li>Statistical analysis</li><li>Regression</li><li>Econometrics</li><li>KPI design</li><li>SPSS</li><li>Data visualization</li></ul></div>
       </div>
-      <button class="tk-more" id="tkMore" type="button" aria-expanded="false"><span class="lbl-more"><span class="en">Show full toolkit (+33)</span><span class="he">לכל הכלים (+33)</span></span><span class="lbl-less" hidden><span class="en">Show less</span><span class="he">הצג פחות</span></span><svg class="caret" viewBox="0 0 10 6" aria-hidden="true"><path d="M1 1l4 4 4-4" fill="none" stroke="currentColor" stroke-width="1.5"/></svg></button>
+      <button class="tk-more" id="tkMore" type="button" aria-expanded="false" data-expand=".toolkit"><span class="en" data-more="Show full toolkit (+33)" data-less="Show less">Show full toolkit (+33)</span> <span class="he" data-more="הצג את כל הכלים (+33)" data-less="הצג פחות">הצג את כל הכלים (+33)</span><svg class="caret" viewBox="0 0 10 6" aria-hidden="true"><path d="M1 1l4 4 4-4" fill="none" stroke="currentColor" stroke-width="1.5"/></svg></button>
       <div class="head edu-head"><h2><span class="en">Education</span><span class="he">השכלה</span></h2></div>
         <div class="edu">
           <div><h4><span class="en"><bdi>M.Sc.</bdi> student, IE&amp;M (Data Science &amp; AI)</span><span class="he">סטודנט <bdi>M.Sc.</bdi>, הנדסת תעשייה וניהול (מדעי הנתונים ו-AI)</span></h4><p><span class="en">Ariel University · 2024 – 2026 · Coursework GPA 89 (thesis grade pending)</span><span class="he">אוניברסיטת אריאל · 2024 – 2026 · ממוצע 89 בקורסים (ציון התזה טרם נקבע)</span></p></div>
@@ -515,7 +517,7 @@ footer{border-top:1px solid var(--rule);padding-block:26px 84px;font-family:var(
   }
 
   /* slides */
-  var titles=['Title','Recommendation systems','Classic recommenders','Cold start problem','Cold start in fashion','Goal: all three scenarios','The data: H&M purchases','Building blocks','Content: multimodal embeddings','Content: Most Similar','Behaviour: co-purchase network','Steps 1-2: one signal each','Step 3: both signals (Mix)','Step 4: CoMMRec','Recap: the path to CoMMRec','Single-query vs multi-query','Evaluation (1): new item','Evaluation (2): new user','Evaluation metrics','Results (1)','Results (2)','Results (3)','Conclusion','Thank you'];
+  var titles=['Title','Recommendation systems','Classic recommenders','Cold start problem','Cold start in fashion','Goal: all three scenarios','The data: H&M purchases','Building blocks','Content: multimodal embeddings','Content: Most Similar','Behavior: co-purchase network','Steps 1-2: one signal each','Step 3: both signals (Mix)','Step 4: CoMMRec','Recap: the path to CoMMRec','Single-query vs multi-query','Evaluation (1): new item','Evaluation (2): new user','Evaluation metrics','Results (1)','Results (2)','Results (3)','Conclusion','Thank you'];
   var N=titles.length;
   function src(k){return 'slides/s'+(k<9?'0':'')+(k+1)+'.jpg'}
   function show(k){
@@ -570,7 +572,7 @@ footer{border-top:1px solid var(--rule);padding-block:26px 84px;font-family:var(
     if(!t)return;
     if(t.id==='langBtn'){if(menu){menu.hidden=!menu.hidden;t.setAttribute('aria-expanded',menu.hidden?'false':'true')}return}
     if(t.hasAttribute('data-lang')){state.lang=t.getAttribute('data-lang');try{localStorage.setItem('lang',state.lang)}catch(_){}if(menu)menu.hidden=true;if(lb)lb.setAttribute('aria-expanded','false');applyLang();return}
-    if(t.id==='tkMore'){var k=document.querySelector('.toolkit'),o=!k.classList.contains('tk-open');k.classList.toggle('tk-open',o);t.setAttribute('aria-expanded',o?'true':'false');t.querySelector('.lbl-more').hidden=o;t.querySelector('.lbl-less').hidden=!o;if(!o){var s=$('skills');if(s&&s.getBoundingClientRect().top<0)s.scrollIntoView()}return}
+    if(t.hasAttribute('data-expand')){var k=document.querySelector(t.getAttribute('data-expand')),o=!k.classList.contains('tk-open');k.classList.toggle('tk-open',o);t.setAttribute('aria-expanded',o?'true':'false');t.querySelectorAll('[data-more]').forEach(function(s){s.textContent=s.getAttribute(o?'data-less':'data-more')});if(!o){var r=k.getBoundingClientRect();if(r.top<0)window.scrollTo(0,r.top+window.scrollY-80)}return}
     if(t.hasAttribute('data-open-deck')){openDeck();return}
     if(t.id==='viewerClose'){closeDeck();return}
     if(t.id==='slidePrev'||t.id==='slideHitL'){show(state.cur-1);return}
