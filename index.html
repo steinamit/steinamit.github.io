@@ -162,7 +162,7 @@ section{padding-block:64px;border-top:1px solid var(--rule)}
 .dots button[aria-current="true"]{background:var(--accent)}
 .hero .portrait{margin:0;justify-self:end;width:100%;max-width:340px}
 .hero .portrait img{display:block;width:100%;height:auto;aspect-ratio:1;object-fit:cover;border-radius:18px}
-.thesis{display:grid;grid-template-columns:minmax(0,300px) minmax(0,1fr);gap:28px;align-items:center;background:var(--paper);border:1px solid var(--rule);border-radius:14px;padding:20px}
+.thesis{display:grid;grid-template-columns:minmax(0,300px) minmax(0,1fr);gap:28px;align-items:start;background:var(--paper);border:1px solid var(--rule);border-radius:14px;padding:20px}
 .thumb{position:relative;display:block;padding:0;border:1px solid var(--rule);border-radius:10px;overflow:hidden;background:#fff;cursor:pointer}
 .thumb img{display:block;width:100%;height:auto;aspect-ratio:4/3;object-fit:cover;object-position:60% 40%;transition:transform .3s}
 .thumb:hover img{transform:scale(1.02)}
@@ -173,6 +173,13 @@ section{padding-block:64px;border-top:1px solid var(--rule)}
 .thesis-body .sub{color:var(--muted);font-size:15px}
 .pipe{margin:4px 0 0;width:100%}
 .pipe img{display:block;width:100%;height:auto;border:1px solid var(--rule);border-radius:10px;background:#fff}
+.pipe-btn{position:relative;display:block;width:100%;padding:0;border:0;background:none;cursor:zoom-in;font:inherit;color:inherit}
+.pipe-btn .hint{display:none;position:absolute;inset-inline-end:8px;bottom:8px;background:var(--ink);color:var(--bg);font:500 12.5px var(--body);border-radius:999px;padding:4px 10px}
+@media (max-width:880px){.pipe-btn .hint{display:block}}
+.zoom-scroll{overflow:auto;-webkit-overflow-scrolling:touch;background:#fff;border:1px solid var(--rule);border-radius:12px}
+.zoom-scroll img{display:block;width:100%;height:auto;max-width:1600px;margin-inline:auto}
+@media (max-width:880px){.zoom-scroll img{width:1000px;max-width:none}}
+.zoom-note{margin-top:10px;font-size:13.5px;color:var(--muted)}
 .pipe figcaption{margin-top:6px;font-size:13px;color:var(--muted)}
 .plain{font-size:15.5px}
 
@@ -180,7 +187,7 @@ section{padding-block:64px;border-top:1px solid var(--rule)}
 .open svg{width:14px;height:14px}
 #site.is-he .open svg{transform:scaleX(-1)}
 .viewer{position:fixed;inset:0;z-index:30;background:var(--bg);overflow:auto;padding:calc(16px + env(safe-area-inset-top,0px)) 16px calc(16px + env(safe-area-inset-bottom,0px))}
-.viewer-in{max-width:1100px;margin-inline:auto;outline:none}
+.viewer-in{max-width:min(1600px,max(320px,calc((100vh - 190px) * 16 / 9)));margin-inline:auto;outline:none}
 .viewer-head{display:flex;align-items:center;gap:12px;margin-bottom:14px}
 .viewer-head h3{font-size:18px;font-weight:700}
 .close{margin-inline-start:auto;font:500 14px var(--body);color:var(--ink);background:var(--paper);border:1px solid var(--rule);border-radius:999px;padding:7px 14px;cursor:pointer;display:flex;align-items:center;gap:6px}
@@ -404,7 +411,7 @@ picture{display:contents}
           <h3 lang="en" dir="ltr">CoMMRec: Training-Free Multimodal Recommendation for User and Item Cold Start</h3>
           <p><span class="en"><bdi>M.Sc.</bdi> thesis research, presented at the Data Science, Operations and Analytics Conference, Mind-IL 2026, Tel Aviv (Machine Learning: Methods and Applications session).</span><span class="he">מחקר תזת <bdi>M.Sc.</bdi> שהוצג בכנס מדעי הנתונים <bdi>Mind-IL 2026</bdi> בתל אביב (מושב <bdi>Machine Learning: Methods and Applications</bdi>).</span></p>
           <p class="sub"><span class="en">A training-free method that recommends new products and serves new customers in fashion e-commerce, combining co-purchase behavior with multimodal product similarity. Evaluated on the H&amp;M dataset (31.8M transactions).</span><span class="he">שיטה ללא אימון שממליצה על מוצרים חדשים ומשרתת לקוחות חדשים במסחר אלקטרוני באופנה, בשילוב של התנהגות רכישה משותפת עם דמיון מולטימודלי בין מוצרים. נבדקה על נתוני H&amp;M ‏(31.8 מיליון עסקאות).</span></p>
-          <figure class="pipe"><picture><source type="image/webp" srcset="slides/s14.webp"><img src="slides/s14.jpg" width="1600" height="900" loading="lazy" decoding="async" alt="Diagram of the CoMMRec pipeline: a new item with no purchase history is matched to the most similar existing items using FashionCLIP, the products most often bought with those items are pooled, and a top-10 list is filled with co-purchased and similar items in a 6:4 mix." data-alt-en="Diagram of the CoMMRec pipeline: a new item with no purchase history is matched to the most similar existing items using FashionCLIP, the products most often bought with those items are pooled, and a top-10 list is filled with co-purchased and similar items in a 6:4 mix." data-alt-he="תרשים של CoMMRec: מוצר חדש בלי היסטוריית רכישות מותאם למוצרים הקיימים הדומים לו ביותר באמצעות FashionCLIP, המוצרים שנקנים הכי הרבה יחד איתם מאוחדים, ונבנית רשימה של 10 המלצות ביחס 6:4 בין מוצרים שנקנו יחד למוצרים דומים."></picture><figcaption><span class="en">From my Mind-IL 2026 talk</span><span class="he">מתוך ההרצאה שלי ב-<bdi>Mind-IL 2026</bdi></span></figcaption></figure>
+          <figure class="pipe"><button type="button" class="pipe-btn" data-zoom><picture><source type="image/webp" srcset="slides/s14.webp"><img src="slides/s14.jpg" width="1600" height="900" loading="lazy" decoding="async" alt="Diagram of the CoMMRec pipeline: a new item with no purchase history is matched to the most similar existing items using FashionCLIP, the products most often bought with those items are pooled, and a top-10 list is filled with co-purchased and similar items in a 6:4 mix." data-alt-en="Diagram of the CoMMRec pipeline: a new item with no purchase history is matched to the most similar existing items using FashionCLIP, the products most often bought with those items are pooled, and a top-10 list is filled with co-purchased and similar items in a 6:4 mix." data-alt-he="תרשים של CoMMRec: מוצר חדש בלי היסטוריית רכישות מותאם למוצרים הקיימים הדומים לו ביותר באמצעות FashionCLIP, המוצרים שנקנים הכי הרבה יחד איתם מאוחדים, ונבנית רשימה של 10 המלצות ביחס 6:4 בין מוצרים שנקנו יחד למוצרים דומים."></picture><span class="hint"><span class="en">Tap to enlarge</span><span class="he">הקישו להגדלה</span></span></button><figcaption><span class="en">From my Mind-IL 2026 talk</span><span class="he">מתוך ההרצאה שלי ב-<bdi>Mind-IL 2026</bdi></span></figcaption></figure>
           <p class="plain"><span class="en"><b>In plain words:</b> when a store adds a new product, it has no sales history, so standard recommenders have nothing to suggest with it. CoMMRec finds existing products that look and read most like the new one, takes what shoppers bought together with those, and builds a top-10 list from both. No model training is needed.</span><span class="he"><b>במילים פשוטות:</b> כשחנות מוסיפה מוצר חדש, אין לו היסטוריית מכירות, ולכן מערכת המלצות רגילה לא יודעת מה להציע איתו. CoMMRec מוצאת מוצרים קיימים שהכי דומים לו במראה ובתיאור, לוקחת את מה שקונים רכשו יחד איתם, ובונה משניהם רשימה של 10 המלצות. אין צורך לאמן מודל.</span></p>
           <button type="button" class="open" data-open-deck><span class="en">View the presentation</span><span class="he">לצפייה במצגת</span><svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" aria-hidden="true"><path class="arw" d="M6 3l5 5-5 5"/></svg></button>
         </div>
@@ -437,7 +444,7 @@ picture{display:contents}
           <p class="tools" dir="ltr">Python · pandas · seaborn</p>
           <a href="https://github.com/steinamit/Python-data-analysis-project" target="_blank" rel="noopener"><span class="en">Code on GitHub</span><span class="he">הקוד ב-GitHub</span><svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" aria-hidden="true"><path d="M5 11l6-6M6 5h5v5"/></svg></a>
         </article>
-        <article class="proj">
+        <article class="proj extra">
           <p class="tag"><span class="en">Forecasting</span><span class="he">חיזוי</span></p>
           <p class="stat"><b dir="ltr">10</b><span><span class="en">years of monthly demand</span><span class="he">שנים של ביקוש חודשי</span></span></p>
           <h3><span class="en">Demand forecasting in R</span> <span class="he">חיזוי ביקוש ב-R</span></h3>
@@ -593,6 +600,16 @@ picture{display:contents}
         <div class="dots" id="slideDots" aria-label="Slides"></div>
   </div>
 </div>
+<div class="viewer" id="zoom" hidden role="dialog" aria-modal="true" aria-labelledby="zoomTitle">
+  <div class="viewer-in" id="zoomIn" tabindex="-1">
+    <div class="viewer-head">
+      <h3 id="zoomTitle" lang="en" dir="ltr">Step 4: CoMMRec</h3>
+      <button type="button" class="close" id="zoomClose"><span class="en">Close</span><span class="he">סגירה</span><svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" aria-hidden="true"><path d="M4 4l8 8M12 4l-8 8"/></svg></button>
+    </div>
+    <div class="zoom-scroll" dir="ltr" tabindex="0"><picture><source type="image/webp" srcset="slides/s14.webp"><img src="slides/s14.jpg" width="1600" height="900" loading="lazy" decoding="async" alt=""></picture></div>
+    <p class="zoom-note"><span class="en">Scroll sideways to see the whole diagram.</span><span class="he">גללו הצידה כדי לראות את כל התרשים.</span></p>
+  </div>
+</div>
 <nav class="pager" aria-label="Section navigation">
   <button type="button" id="prevBtn" title="Previous section"><svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" aria-hidden="true"><path d="M3 10l5-5 5 5"/></svg><span class="sr"><span class="en">Previous section</span><span class="he">הקטע הקודם</span></span></button>
   <button type="button" id="nextBtn" title="Next section"><svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" aria-hidden="true"><path d="M3 6l5 5 5-5"/></svg><span class="sr"><span class="en">Next section</span><span class="he">הקטע הבא</span></span></button>
@@ -638,6 +655,8 @@ picture{display:contents}
   function openDeck(){var v=$('viewer');if(!v)return;lastFocus=document.activeElement;v.hidden=false;document.body.classList.add('locked');show(state.cur);var d=$('deck');if(d)d.focus()}
   function closeDeck(){var v=$('viewer');if(!v)return;v.hidden=true;document.body.classList.remove('locked');if(lastFocus&&lastFocus.focus)lastFocus.focus()}
   function deckOpen(){var v=$('viewer');return v&&!v.hidden}
+  function openZoom(){var z=$('zoom');if(!z)return;lastFocus=document.activeElement;var s=document.querySelector('.pipe img'),d=z.querySelector('img');if(s&&d)d.alt=s.alt;z.hidden=false;document.body.classList.add('locked');var f=$('zoomIn');if(f)f.focus()}
+  function closeZoom(){var z=$('zoom');if(!z||z.hidden)return false;z.hidden=true;document.body.classList.remove('locked');if(lastFocus&&lastFocus.focus)lastFocus.focus();return true}
 
   /* section pager */
   var ids=['top','now','research','before','skills','recs','afk','contact'];
@@ -674,6 +693,8 @@ picture{display:contents}
     if(t.hasAttribute('data-lang')){state.lang=t.getAttribute('data-lang');try{localStorage.setItem('lang',state.lang)}catch(_){}if(menu)menu.hidden=true;if(lb)lb.setAttribute('aria-expanded','false');applyLang();return}
     if(t.hasAttribute('data-expand')){var k=document.querySelector(t.getAttribute('data-expand')),o=!k.classList.contains('tk-open');k.classList.toggle('tk-open',o);t.setAttribute('aria-expanded',o?'true':'false');t.querySelectorAll('[data-more]').forEach(function(s){s.textContent=s.getAttribute(o?'data-less':'data-more')});if(!o){var r=k.getBoundingClientRect();if(r.top<0)window.scrollTo(0,r.top+window.scrollY-80)}return}
     if(t.hasAttribute('data-open-deck')){openDeck();return}
+    if(t.hasAttribute('data-zoom')){openZoom();return}
+    if(t.id==='zoomClose'){closeZoom();return}
     if(t.id==='viewerClose'){closeDeck();return}
     if(t.id==='slidePrev'||t.id==='slideHitL'){show(state.cur-1);return}
     if(t.id==='slideNext'||t.id==='slideHitR'){show(state.cur+1);return}
@@ -682,7 +703,7 @@ picture{display:contents}
     if(t.id==='nextBtn'){go(current()+1);return}
     if(t.id==='copyBtn'){copyEmail(t);return}
   });
-  document.addEventListener('keydown',function(e){if(e.key==='Escape'){var m=$('langMenu');if(m&&!m.hidden){m.hidden=true;return}}
+  document.addEventListener('keydown',function(e){if(e.key==='Escape'){var m=$('langMenu');if(m&&!m.hidden){m.hidden=true;return}if(closeZoom())return}
     if(!deckOpen())return;
     if(e.key==='Escape')closeDeck();
     else if(e.key==='ArrowRight')show(state.cur+(state.lang==='he'?-1:1));
