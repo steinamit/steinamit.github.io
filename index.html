@@ -224,11 +224,12 @@ body.locked{overflow:hidden}
 .addr{font-family:var(--mono);font-size:clamp(16px,2.2vw,20px);direction:ltr;unicode-bidi:isolate;user-select:all;background:var(--paper);border:1px solid var(--rule);border-radius:10px;padding:9px 14px}
 .copy{font:500 15px var(--body);background:var(--ink);color:var(--bg);border:0;border-radius:10px;padding:11px 16px;cursor:pointer}
 .links{display:flex;gap:22px;margin-top:20px}
-.pager{position:fixed;z-index:6;inset-inline-end:16px;bottom:calc(16px + env(safe-area-inset-bottom,0px));display:flex;gap:6px;background:var(--paper);border:1px solid var(--rule);border-radius:999px;padding:5px;box-shadow:0 4px 16px rgba(15,23,38,.12)}
-.pager button{font:500 14px var(--body);color:var(--ink);background:none;border:0;border-radius:999px;padding:7px 14px;cursor:pointer;display:flex;align-items:center;gap:6px}
+.pager{position:fixed;z-index:6;inset-inline-end:16px;bottom:calc(16px + env(safe-area-inset-bottom,0px));display:flex;flex-direction:column;gap:2px;background:var(--paper);border:1px solid var(--rule);border-radius:999px;padding:4px;box-shadow:0 4px 16px rgba(15,23,38,.12)}
+.pager button{width:40px;height:40px;color:var(--ink);background:none;border:0;border-radius:50%;cursor:pointer;display:grid;place-items:center;padding:0}
 .pager button:hover:not(:disabled){background:var(--accent-soft)}
-.pager button:disabled{color:var(--muted);opacity:.45;cursor:default}
-.pager svg{width:14px;height:14px;flex:none}
+.pager button:disabled{color:var(--muted);opacity:.35;cursor:default}
+.pager svg{width:16px;height:16px;flex:none}
+.sr{position:absolute;width:1px;height:1px;overflow:hidden;clip:rect(0 0 0 0);white-space:nowrap}
 footer{border-top:1px solid var(--rule);padding-block:26px 84px;font-family:var(--mono);font-size:12px;color:var(--muted)}
 
 @media (max-width:880px){
@@ -492,8 +493,8 @@ footer{border-top:1px solid var(--rule);padding-block:26px 84px;font-family:var(
   </div>
 </div>
 <nav class="pager" aria-label="Section navigation">
-  <button type="button" id="prevBtn"><svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" aria-hidden="true"><path d="M3 10l5-5 5 5"/></svg><span class="en">Back</span><span class="he">אחורה</span></button>
-  <button type="button" id="nextBtn"><span class="en">Next</span><span class="he">קדימה</span><svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" aria-hidden="true"><path d="M3 6l5 5 5-5"/></svg></button>
+  <button type="button" id="prevBtn" title="Previous section"><svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" aria-hidden="true"><path d="M3 10l5-5 5 5"/></svg><span class="sr"><span class="en">Previous section</span><span class="he">הקטע הקודם</span></span></button>
+  <button type="button" id="nextBtn" title="Next section"><svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" aria-hidden="true"><path d="M3 6l5 5 5-5"/></svg><span class="sr"><span class="en">Next section</span><span class="he">הקטע הבא</span></span></button>
 </nav>
 <footer><div class="wrap"><span class="en">Amit Stein · 2026</span><span class="he">עמית שטיין · 2026</span></div></footer>
 </div>
@@ -507,6 +508,7 @@ footer{border-top:1px solid var(--rule);padding-block:26px 84px;font-family:var(
 
   /* language */
   function applyLang(){
+    var he0=state.lang==='he',pb=$('prevBtn'),nb=$('nextBtn');if(pb)pb.title=he0?'הקטע הקודם':'Previous section';if(nb)nb.title=he0?'הקטע הבא':'Next section';
     var site=$('site'),btn=$('langBtn');if(!site)return;
     site.className='is-'+state.lang;site.lang=state.lang;site.dir=state.lang==='he'?'rtl':'ltr';
     var cur=$('langCur'),opt=document.querySelector('#langMenu [data-lang="'+state.lang+'"]');if(cur&&opt&&cur.innerHTML!==opt.innerHTML)cur.innerHTML=opt.innerHTML;document.querySelectorAll('#langMenu [data-lang]').forEach(function(b){b.setAttribute('aria-current',b.getAttribute('data-lang')===state.lang?'true':'false')});
