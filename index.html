@@ -171,6 +171,11 @@ section{padding-block:64px;border-top:1px solid var(--rule)}
 .thesis-body h3{font-size:20px;font-weight:700;line-height:1.3}
 .thesis-body p{font-size:15.5px}
 .thesis-body .sub{color:var(--muted);font-size:15px}
+.pipe{margin:4px 0 0;width:100%}
+.pipe img{display:block;width:100%;height:auto;border:1px solid var(--rule);border-radius:10px;background:#fff}
+.pipe figcaption{margin-top:6px;font-size:13px;color:var(--muted)}
+.plain{font-size:15.5px}
+
 .open{font:500 15px var(--body);background:var(--accent);color:#fff;border:0;border-radius:999px;padding:10px 18px;cursor:pointer;display:flex;align-items:center;gap:8px;margin-top:4px}
 .open svg{width:14px;height:14px}
 #site.is-he .open svg{transform:scaleX(-1)}
@@ -399,6 +404,8 @@ picture{display:contents}
           <h3 lang="en" dir="ltr">CoMMRec: Training-Free Multimodal Recommendation for User and Item Cold Start</h3>
           <p><span class="en"><bdi>M.Sc.</bdi> thesis research, presented at the Data Science, Operations and Analytics Conference, Mind-IL 2026, Tel Aviv (Machine Learning: Methods and Applications session).</span><span class="he">מחקר תזת <bdi>M.Sc.</bdi> שהוצג בכנס מדעי הנתונים <bdi>Mind-IL 2026</bdi> בתל אביב (מושב <bdi>Machine Learning: Methods and Applications</bdi>).</span></p>
           <p class="sub"><span class="en">A training-free method that recommends new products and serves new customers in fashion e-commerce, combining co-purchase behavior with multimodal product similarity. Evaluated on the H&amp;M dataset (31.8M transactions).</span><span class="he">שיטה ללא אימון שממליצה על מוצרים חדשים ומשרתת לקוחות חדשים במסחר אלקטרוני באופנה, בשילוב של התנהגות רכישה משותפת עם דמיון מולטימודלי בין מוצרים. נבדקה על נתוני H&amp;M ‏(31.8 מיליון עסקאות).</span></p>
+          <figure class="pipe"><picture><source type="image/webp" srcset="slides/s14.webp"><img src="slides/s14.jpg" width="1600" height="900" loading="lazy" decoding="async" alt="Diagram of the CoMMRec pipeline: a new item with no purchase history is matched to the most similar existing items using FashionCLIP, the products most often bought with those items are pooled, and a top-10 list is filled with co-purchased and similar items in a 6:4 mix." data-alt-en="Diagram of the CoMMRec pipeline: a new item with no purchase history is matched to the most similar existing items using FashionCLIP, the products most often bought with those items are pooled, and a top-10 list is filled with co-purchased and similar items in a 6:4 mix." data-alt-he="תרשים של CoMMRec: מוצר חדש בלי היסטוריית רכישות מותאם למוצרים הקיימים הדומים לו ביותר באמצעות FashionCLIP, המוצרים שנקנים הכי הרבה יחד איתם מאוחדים, ונבנית רשימה של 10 המלצות ביחס 6:4 בין מוצרים שנקנו יחד למוצרים דומים."></picture><figcaption><span class="en">From my Mind-IL 2026 talk</span><span class="he">מתוך ההרצאה שלי ב-<bdi>Mind-IL 2026</bdi></span></figcaption></figure>
+          <p class="plain"><span class="en"><b>In plain words:</b> when a store adds a new product, it has no sales history, so standard recommenders have nothing to suggest with it. CoMMRec finds existing products that look and read most like the new one, takes what shoppers bought together with those, and builds a top-10 list from both. No model training is needed.</span><span class="he"><b>במילים פשוטות:</b> כשחנות מוסיפה מוצר חדש, אין לו היסטוריית מכירות, ולכן מערכת המלצות רגילה לא יודעת מה להציע איתו. CoMMRec מוצאת מוצרים קיימים שהכי דומים לו במראה ובתיאור, לוקחת את מה שקונים רכשו יחד איתם, ובונה משניהם רשימה של 10 המלצות. אין צורך לאמן מודל.</span></p>
           <button type="button" class="open" data-open-deck><span class="en">View the presentation</span><span class="he">לצפייה במצגת</span><svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" aria-hidden="true"><path class="arw" d="M6 3l5 5-5 5"/></svg></button>
         </div>
       </article>
