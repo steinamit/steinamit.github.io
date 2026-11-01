@@ -163,10 +163,6 @@ section{padding-block:64px;border-top:1px solid var(--rule)}
 .hero .portrait{margin:0;justify-self:end;width:100%;max-width:400px}
 .hero .portrait img{display:block;width:100%;height:auto;aspect-ratio:1;object-fit:cover;border-radius:18px}
 .thesis{display:grid;grid-template-columns:minmax(0,300px) minmax(0,1fr);gap:28px;align-items:start;background:var(--paper);border:1px solid var(--rule);border-radius:14px;padding:20px}
-.sched{margin:0}
-.sched img{display:block;width:100%;height:auto;border:1px solid var(--rule);border-radius:10px;background:#3a2a1e}
-.sched figcaption{margin-top:6px;font-size:13px;color:var(--muted)}
-@media (max-width:880px){.sched{max-width:240px}}
 .thumb{position:relative;display:block;padding:0;border:1px solid var(--rule);border-radius:10px;overflow:hidden;background:#fff;cursor:pointer}
 .thumb img{display:block;width:100%;height:auto;aspect-ratio:4/3;object-fit:cover;object-position:60% 40%;transition:transform .3s}
 .thumb:hover img{transform:scale(1.02)}
@@ -415,7 +411,7 @@ picture{display:contents}
       <div class="head"><h2><span class="en">Academic work</span><span class="he">עבודה אקדמית</span></h2></div>
       <h3 class="subhead"><span class="en"><bdi>M.Sc.</bdi> thesis</span><span class="he">תזת <bdi>M.Sc.</bdi></span></h3>
       <article class="thesis">
-        <figure class="sched"><picture><source type="image/webp" srcset="slides/schedule.webp"><img src="slides/schedule.jpg" width="620" height="1002" loading="lazy" decoding="async" alt="The Room A3 schedule screen at Mind-IL 2026, Expo Tel Aviv, 26 October 2026, listing Amit Stein in the Machine Learning: Methods and Applications session." data-alt-en="The Room A3 schedule screen at Mind-IL 2026, Expo Tel Aviv, 26 October 2026, listing Amit Stein in the Machine Learning: Methods and Applications session." data-alt-he="מסך לוח הזמנים של אולם A3 בכנס Mind-IL 2026, אקספו תל אביב, 26 באוקטובר 2026, שבו עמית שטיין מופיע במושב Machine Learning: Methods and Applications."></picture><figcaption><span class="en">Room A3, Mind-IL 2026, Expo Tel Aviv</span><span class="he">אולם <bdi>A3</bdi>, <bdi>Mind-IL 2026</bdi>, אקספו תל אביב</span></figcaption></figure>
+        <button type="button" class="thumb" data-open-deck aria-label="Open the presentation"><picture><source type="image/webp" srcset="slides/talk.webp"><img src="slides/talk.jpg" alt="Amit Stein presenting CoMMRec at Mind-IL 2026" width="800" height="643" loading="lazy"></picture><span><span class="en">24 slides</span><span class="he">24 שקפים</span></span></button>
         <div class="thesis-body">
           <h3 lang="en" dir="ltr">CoMMRec: Training-Free Multimodal Recommendation for User and Item Cold Start</h3>
           <p><span class="en"><bdi>M.Sc.</bdi> thesis research, presented at the Data Science, Operations and Analytics Conference, Mind-IL 2026, Tel Aviv (Machine Learning: Methods and Applications session). Supervised by Prof. Chen Hajaj and Dr. Anat Goldstein.</span><span class="he">מחקר תזת <bdi>M.Sc.</bdi> שהוצג בכנס מדעי הנתונים <bdi>Mind-IL 2026</bdi> בתל אביב (מושב <bdi>Machine Learning: Methods and Applications</bdi>). בהנחיית פרופ' חן חג'ג' וד"ר ענת גולדשטיין.</span></p>
